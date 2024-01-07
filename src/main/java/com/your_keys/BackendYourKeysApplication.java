@@ -1,4 +1,4 @@
-package com.example.segundo_deber;
+package com.your_keys;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
