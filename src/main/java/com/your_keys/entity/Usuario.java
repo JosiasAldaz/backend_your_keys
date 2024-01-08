@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,7 +23,7 @@ public class Usuario implements Serializable {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id_usuario;
 		
-		@Column(nullable = false, unique = true)
+		@Column(nullable = false, unique = true, insertable = false, updatable = false)
 		private Long id_persona;
 		
 		@Column(nullable = false, unique = true)
@@ -30,6 +31,10 @@ public class Usuario implements Serializable {
 		
 		@Column(nullable = false)
 		private String password;
+		
+		@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name = "id_persona")
+		private Persona persona;
 		
 		@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 		@JoinColumn(name = "id_usuario")
@@ -73,5 +78,13 @@ public class Usuario implements Serializable {
 
 		public void setUsuarios_roles(List<Usuario_Rol> usuarios_roles) {
 			this.usuarios_roles = usuarios_roles;
-		}	
+		}
+
+		public Persona getPersona() {
+			return persona;
+		}
+
+		public void setPersona(Persona persona) {
+			this.persona = persona;
+		}
 }
