@@ -26,6 +26,8 @@ public class Cliente implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_cliente;
 	private Long id_persona;
+	private String licencia;
+	private String tipo_licencia;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="id_cliente")
@@ -58,6 +60,21 @@ public class Cliente implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
+	public String getLicencia() {
+		return licencia;
+	}
+
+	public void setLicencia(String licencia) {
+		this.licencia = licencia;
+	}
+
+	public String getTipo_licencia() {
+		return tipo_licencia;
+	}
+
+	public void setTipo_licencia(String tipo_licencia) {
+		this.tipo_licencia = tipo_licencia;
+	}
 	
 }
