@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="modelo" , uniqueConstraints = {@UniqueConstraint(columnNames = {"nombre"})})
+@Table(name="marca" , uniqueConstraints = {@UniqueConstraint(columnNames = {"nombre"})})
 public class Marca implements Serializable {
 	
 	 
