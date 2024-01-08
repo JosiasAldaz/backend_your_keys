@@ -7,7 +7,4 @@ public interface serAuto  {
 	public Auto save(Auto auto);
 	public Auto findById(Long id_auto);
 	public void delete(Long id_auto);
-	
-       
-
 }
