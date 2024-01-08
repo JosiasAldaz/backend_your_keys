@@ -12,49 +12,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.your_keys.entity.Persona;
-import com.your_keys.services.serPersona;
-
+import com.your_keys.entity.Rol;
+import com.your_keys.services.serRol;
 
 @RestController
 @RequestMapping("/api")
-public class ctrlPersona {
+public class ctrlRol {
 	
 	@Autowired
-	private serPersona service;
+	private serRol service;
 	
-	@GetMapping("/personas")
-	public List<Persona> listar(){
+	@GetMapping("/roles")
+	public List<Rol> listar(){
 		return service.findAll();
 	}
 	
-	@GetMapping("/personas/{id}")
-	public Persona buscar(@PathVariable Long id) {
+	@GetMapping("/roles/{id}")
+	public Rol buscar(@PathVariable Long id) {
 		return service.findById(id);
 	}
 	
-	@PostMapping("/personas")
+	@PostMapping("/roles")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Persona crear(@RequestBody Persona body) {
+	public Rol crear(@RequestBody Rol body) {
 		return service.save(body);
 	}
 	
-	@PutMapping("/personas/{id}")
-	public Persona actualizar(@RequestBody Persona body, @PathVariable Long id) {
-		Persona persona = service.findById(id);
-		persona.setNombre1(body.getNombre1());
-		persona.setNombre2(body.getNombre2());
-		persona.setApellido1(body.getApellido1());
-		persona.setApellido2(body.getApellido2());
-		persona.setTelefono(body.getTelefono());
-		persona.setDireccion(body.getDireccion());
-		persona.setFecha_nac(body.getFecha_nac());
-		persona.setCorreo(body.getCorreo());
-		persona.setUrl_imagen(body.getUrl_imagen());
-		return service.save(persona);
+	@PutMapping("/roles/{id}")
+	public Rol actualizar(@RequestBody Rol body, @PathVariable Long id) {
+		Rol rol = service.findById(id);
+		rol.setNombre(body.getNombre());
+		return service.save(rol);
 	}
 	
-	@DeleteMapping("/personas/{id}")
+	@DeleteMapping("/roles/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void eliminar(@PathVariable Long id) {
 		service.delete(id);

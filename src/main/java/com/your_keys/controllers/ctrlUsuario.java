@@ -12,49 +12,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.your_keys.entity.Persona;
-import com.your_keys.services.serPersona;
-
+import com.your_keys.entity.Usuario;
+import com.your_keys.services.serUsuario;
 
 @RestController
 @RequestMapping("/api")
-public class ctrlPersona {
+public class ctrlUsuario {
 	
 	@Autowired
-	private serPersona service;
+	private serUsuario service;
 	
-	@GetMapping("/personas")
-	public List<Persona> listar(){
+	@GetMapping("/usuarios")
+	public List<Usuario> listar(){
 		return service.findAll();
 	}
 	
-	@GetMapping("/personas/{id}")
-	public Persona buscar(@PathVariable Long id) {
+	@GetMapping("/usuarios/{id}")
+	public Usuario buscar(@PathVariable Long id) {
 		return service.findById(id);
 	}
 	
-	@PostMapping("/personas")
+	@PostMapping("/usuarios")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Persona crear(@RequestBody Persona body) {
+	public Usuario crear(@RequestBody Usuario body) {
 		return service.save(body);
 	}
 	
-	@PutMapping("/personas/{id}")
-	public Persona actualizar(@RequestBody Persona body, @PathVariable Long id) {
-		Persona persona = service.findById(id);
-		persona.setNombre1(body.getNombre1());
-		persona.setNombre2(body.getNombre2());
-		persona.setApellido1(body.getApellido1());
-		persona.setApellido2(body.getApellido2());
-		persona.setTelefono(body.getTelefono());
-		persona.setDireccion(body.getDireccion());
-		persona.setFecha_nac(body.getFecha_nac());
-		persona.setCorreo(body.getCorreo());
-		persona.setUrl_imagen(body.getUrl_imagen());
-		return service.save(persona);
+	@PutMapping("/usuarios/{id}")
+	public Usuario actualizar(@RequestBody Usuario body, @PathVariable Long id) {
+		Usuario usuario = service.findById(id);
+		usuario.setUsername(body.getUsername());
+		usuario.setPassword(body.getPassword());
+		return service.save(usuario);
 	}
 	
-	@DeleteMapping("/personas/{id}")
+	@DeleteMapping("/usuarios/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void eliminar(@PathVariable Long id) {
 		service.delete(id);
