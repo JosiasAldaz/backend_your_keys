@@ -42,6 +42,7 @@ public class Alquiler implements Serializable{
 	@JoinColumn(name="id_alquiler")
 	private List<Auto> autos;
 	private List<Proteccion> proteccion;
+	private List<Cliente> clientes;
 
 	public Long getId_alquiler() {
 		return id_alquiler;
@@ -174,6 +175,14 @@ public class Alquiler implements Serializable{
 
 	public void setProteccion(List<Proteccion> proteccion) {
 		this.proteccion = proteccion;
+	}
+
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 	
 	

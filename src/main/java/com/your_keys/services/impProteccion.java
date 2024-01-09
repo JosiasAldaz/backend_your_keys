@@ -22,9 +22,9 @@ public class impProteccion implements serProteccion{
 	}
 
 	@Override
-	public Proteccion findById(Long id_devolución) {
+	public Proteccion findById(Long id_proteccion) {
 		// TODO Auto-generated method stub
-		return dao.findById(id_devolución).orElse(null);
+		return dao.findById(id_proteccion).orElse(null);
 	}
 
 	@Override
