@@ -2,6 +2,8 @@ package com.your_keys.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
@@ -58,18 +61,6 @@ public class Persona implements Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha_reg;
-	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_persona")
-	private Usuario usuario;
-	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_persona")
-	private Cliente cliente;
-	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_persona")
-	private Empleado empleado;
 	
 	@PrePersist
 	public void prePersist() {
@@ -170,29 +161,5 @@ public class Persona implements Serializable {
 
 	public void setFecha_reg(Date fecha_reg) {
 		this.fecha_reg = fecha_reg;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Empleado getEmpleado() {
-		return empleado;
-	}
-
-	public void setEmpleado(Empleado empleado) {
-		this.empleado = empleado;
 	}
 }

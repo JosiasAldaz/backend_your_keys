@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,11 +23,15 @@ public class Empleado implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_empleado;
 	
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true, insertable = false, updatable = false)
 	private Long id_persona;
 	
 	@Column(nullable = false)
 	private double salario;
+	
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_persona")
+	private Persona persona;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_empleado")
@@ -62,5 +67,13 @@ public class Empleado implements Serializable {
 
 	public void setAlquileres(List<Alquiler> alquileres) {
 		this.alquileres = alquileres;
+	}
+
+	public Persona getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 }
