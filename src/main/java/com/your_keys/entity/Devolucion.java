@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,9 +29,9 @@ public class Devolucion implements Serializable{
 	private Long id_alquiler;
 	private Date fecha;
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@JoinColumn(name="id_devolución")
-	private List<Alquiler> alquileres;
+	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="id_alquiler")
+	private Alquiler alquiler;
 	
 	public Long getId_devolución() {
 		return id_devolución;
@@ -53,13 +54,12 @@ public class Devolucion implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public List<Alquiler> getAlquileres() {
-		return alquileres;
+	public Alquiler getAlquiler() {
+		return alquiler;
 	}
-	public void setAlquileres(List<Alquiler> alquileres) {
-		this.alquileres = alquileres;
+	public void setAlquiler(Alquiler alquiler) {
+		this.alquiler = alquiler;
 	}
-	
 	
 	
 }

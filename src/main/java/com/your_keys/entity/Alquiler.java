@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,7 +27,6 @@ public class Alquiler implements Serializable{
 	private Long id_alquiler;
 	private Long id_cliente;
 	private Long id_auto;
-	private Long id_proteccion;
 	private Long id_empleado;
 	private Date fecha_ini;
 	private Date fecha_fin;
@@ -37,12 +37,7 @@ public class Alquiler implements Serializable{
 	private boolean pagado;
 	private boolean reservado;
 	private Date fecha_reg;
-
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@JoinColumn(name="id_alquiler")
-	private List<Auto> autos;
-	private List<Proteccion> proteccion;
-	private List<Cliente> clientes;
+	
 
 	public Long getId_alquiler() {
 		return id_alquiler;
@@ -68,14 +63,6 @@ public class Alquiler implements Serializable{
 		this.id_auto = id_auto;
 	}
 
-	
-	public Long getId_proteccion() {
-		return id_proteccion;
-	}
-
-	public void setId_proteccion(Long id_proteccion) {
-		this.id_proteccion = id_proteccion;
-	}
 
 	public Long getId_empleado() {
 		return id_empleado;
@@ -157,34 +144,9 @@ public class Alquiler implements Serializable{
 		this.fecha_reg = fecha_reg;
 	}
 
-	public List<Auto> getAutos() {
-		return autos;
-	}
-
-	public void setAutos(List<Auto> autos) {
-		this.autos = autos;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	public List<Proteccion> getProteccion() {
-		return proteccion;
-	}
-
-	public void setProteccion(List<Proteccion> proteccion) {
-		this.proteccion = proteccion;
-	}
-
-	public List<Cliente> getClientes() {
-		return clientes;
-	}
-
-	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
-	}
-	
-	
 	
 }

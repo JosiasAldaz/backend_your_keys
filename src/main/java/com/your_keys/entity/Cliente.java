@@ -33,10 +33,7 @@ public class Cliente implements Serializable{
 	private String licencia;
 	private String tipo_licencia;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_persona")
-	private Persona persona;
-	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="id_cliente")
 	private List<Alquiler> alquiler;
 

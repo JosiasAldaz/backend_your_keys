@@ -25,7 +25,6 @@ public class Proteccion implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_proteccion;
-	private Long id_alquiler;
 	private Date fecha;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
@@ -37,12 +36,7 @@ public class Proteccion implements Serializable{
 	public void setId_proteccion(Long id_proteccion) {
 		this.id_proteccion = id_proteccion;
 	}
-	public Long getId_alquiler() {
-		return id_alquiler;
-	}
-	public void setId_alquiler(Long id_alquiler) {
-		this.id_alquiler = id_alquiler;
-	}
+	
 	public Date getFecha() {
 		return fecha;
 	}
