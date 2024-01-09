@@ -1,6 +1,7 @@
 package com.your_keys.entity;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +10,8 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -25,11 +28,15 @@ public class Cliente implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_cliente;
+	@Column(nullable = false, unique = true, insertable = false, updatable = false)
 	private Long id_persona;
 	private String licencia;
 	private String tipo_licencia;
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_persona")
+	private Persona persona;
+	
 	@JoinColumn(name="id_cliente")
 	private List<Alquiler> alquiler;
 

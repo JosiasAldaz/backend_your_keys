@@ -2,11 +2,16 @@ package com.your_keys.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +28,9 @@ public class Devolucion implements Serializable{
 	private Long id_alquiler;
 	private Date fecha;
 	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="id_devolución")
+	private List<Alquiler> alquileres;
 	
 	public Long getId_devolución() {
 		return id_devolución;
@@ -44,6 +52,12 @@ public class Devolucion implements Serializable{
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public List<Alquiler> getAlquileres() {
+		return alquileres;
+	}
+	public void setAlquileres(List<Alquiler> alquileres) {
+		this.alquileres = alquileres;
 	}
 	
 	

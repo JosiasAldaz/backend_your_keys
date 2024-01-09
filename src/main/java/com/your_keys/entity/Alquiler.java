@@ -26,7 +26,7 @@ public class Alquiler implements Serializable{
 	private Long id_alquiler;
 	private Long id_cliente;
 	private Long id_auto;
-	private Long id_protección;
+	private Long id_proteccion;
 	private Long id_empleado;
 	private Date fecha_ini;
 	private Date fecha_fin;
@@ -41,6 +41,7 @@ public class Alquiler implements Serializable{
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="id_alquiler")
 	private List<Auto> autos;
+	private List<Proteccion> proteccion;
 
 	public Long getId_alquiler() {
 		return id_alquiler;
@@ -66,12 +67,13 @@ public class Alquiler implements Serializable{
 		this.id_auto = id_auto;
 	}
 
-	public Long getId_protección() {
-		return id_protección;
+	
+	public Long getId_proteccion() {
+		return id_proteccion;
 	}
 
-	public void setId_protección(Long id_protección) {
-		this.id_protección = id_protección;
+	public void setId_proteccion(Long id_proteccion) {
+		this.id_proteccion = id_proteccion;
 	}
 
 	public Long getId_empleado() {
@@ -165,6 +167,15 @@ public class Alquiler implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public List<Proteccion> getProteccion() {
+		return proteccion;
+	}
+
+	public void setProteccion(List<Proteccion> proteccion) {
+		this.proteccion = proteccion;
+	}
+	
 	
 	
 }
