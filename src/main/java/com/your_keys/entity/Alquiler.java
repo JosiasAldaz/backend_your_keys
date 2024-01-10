@@ -38,7 +38,9 @@ public class Alquiler implements Serializable{
 	private boolean reservado;
 	private Date fecha_reg;
 	
-
+	@OneToOne(mappedBy = "alquiler")
+	private Devolucion devo;
+	
 	public Long getId_alquiler() {
 		return id_alquiler;
 	}
@@ -146,6 +148,14 @@ public class Alquiler implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Devolucion getDevo() {
+		return devo;
+	}
+
+	public void setDevo(Devolucion devo) {
+		this.devo = devo;
 	}
 
 	

@@ -26,10 +26,9 @@ public class Devolucion implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_devolución;
-	private Long id_alquiler;
 	private Date fecha;
 	
-	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="id_alquiler")
 	private Alquiler alquiler;
 	
@@ -39,12 +38,7 @@ public class Devolucion implements Serializable{
 	public void setId_devolución(Long id_devolución) {
 		this.id_devolución = id_devolución;
 	}
-	public Long getId_alquiler() {
-		return id_alquiler;
-	}
-	public void setId_alquiler(Long id_alquiler) {
-		this.id_alquiler = id_alquiler;
-	}
+	
 	public Date getFecha() {
 		return fecha;
 	}
