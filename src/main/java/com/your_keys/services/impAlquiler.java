@@ -32,10 +32,6 @@ public class impAlquiler implements serAlquiler{
 		return dao.findById(id_alquiler).orElse(null);
 	}
 	
-	@Override
-	@Transactional
-	public void delete(Long id_rol) {
-		dao.deleteById(id_rol);
-	}
+
 
 }
