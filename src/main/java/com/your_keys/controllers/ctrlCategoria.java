@@ -25,30 +25,30 @@ public class ctrlCategoria {
 	private serCategoria ser;
 	
 	
-	@GetMapping("/categoria")
+	@GetMapping("/categorias")
 	public List<Categoria> listar(){
 		return ser.findAll();
 	}
 	
-	@GetMapping("/categoria/{id}")
+	@GetMapping("/categorias/{id}")
 	public Categoria buscar(@PathVariable Long id) {
 		return ser.findById(id);
 	}
 	
-	@PostMapping("/categoria")
+	@PostMapping("/categorias")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Categoria crear(@RequestBody Categoria body) {
 		return ser.save(body);
 	}
 	
-	@PutMapping("/categoria/{id}")
+	@PutMapping("/categorias/{id}")
 	public Categoria actualizar(@RequestBody Categoria body, @PathVariable Long id) {
 		Categoria rpd = ser.findById(id);
 		rpd.setNombre(body.getNombre());
 		return ser.save(rpd);
 	}
 	
-	@DeleteMapping("/categoria/{id}")
+	@DeleteMapping("/categorias/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void eliminar (@PathVariable Long id) {
 		ser.delete(id);

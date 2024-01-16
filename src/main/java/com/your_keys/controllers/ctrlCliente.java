@@ -24,23 +24,23 @@ import com.your_keys.services.serCliente;
 public class ctrlCliente {
 	private serCliente clientes;
 	
-	@GetMapping("/cliente")
+	@GetMapping("/clientes")
 	public List<Cliente> listar(){
 		return clientes.findAll();
 	}
 	
-	@GetMapping("/cliente/{id}")
+	@GetMapping("/clientes/{id}")
 	public Cliente buscar(@PathVariable Long id) {
 		return clientes.findById(id);
 	}
 	
-	@PostMapping("/cliente")
+	@PostMapping("/clientes")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente crear(@RequestBody Cliente body) {
 		return clientes.save(body);
 	}
 	
-	@PutMapping("/cliente/{id}")
+	@PutMapping("/clientes/{id}")
 	public Cliente actualizar(@RequestBody Cliente body, @PathVariable Long id) {
 		Cliente rpd = clientes.findById(id);
 		rpd.setTipo_licencia(body.getTipo_licencia());
@@ -48,7 +48,7 @@ public class ctrlCliente {
 		return clientes.save(rpd);
 	}
 	
-	@DeleteMapping("/cliente/{id}")
+	@DeleteMapping("/clientes/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void eliminar (@PathVariable Long id) {
 		clientes.delete(id);

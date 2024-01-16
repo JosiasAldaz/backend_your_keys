@@ -29,13 +29,14 @@ public class Empleado implements Serializable {
 	@Column(nullable = false)
 	private double salario;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_persona")
-	private Persona persona;
-	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_empleado")
 	private List<Alquiler> alquileres;
+	
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_persona", unique = true)
+	private Persona persona;
+	
 
 	public Long getId_empleado() {
 		return id_empleado;
@@ -76,4 +77,5 @@ public class Empleado implements Serializable {
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
+	
 }

@@ -23,22 +23,19 @@ public class Usuario implements Serializable {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id_usuario;
 		
-		@Column(nullable = false, unique = true, insertable = false, updatable = false)
-		private Long id_persona;
-		
 		@Column(nullable = false, unique = true)
 		private String username;
 		
 		@Column(nullable = false)
 		private String password;
 		
-		@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-		@JoinColumn(name = "id_persona")
-		private Persona persona;
-		
 		@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 		@JoinColumn(name = "id_usuario")
 		private List<Usuario_Rol> usuarios_roles;
+		
+		@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name = "id_persona", unique = true)
+		private Persona persona;
 
 		public Long getId_usuario() {
 			return id_usuario;
@@ -46,14 +43,6 @@ public class Usuario implements Serializable {
 
 		public void setId_usuario(Long id_usuario) {
 			this.id_usuario = id_usuario;
-		}
-
-		public Long getId_persona() {
-			return id_persona;
-		}
-
-		public void setId_persona(Long id_persona) {
-			this.id_persona = id_persona;
 		}
 
 		public String getUsername() {

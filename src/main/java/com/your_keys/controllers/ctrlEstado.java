@@ -24,30 +24,30 @@ public class ctrlEstado {
 	private serEstado ser;
 	
 	
-	@GetMapping("/estado")
+	@GetMapping("/estados")
 	public List<Estado> listar(){
 		return ser.findAll();
 	}
 	
-	@GetMapping("/estado/{id}")
+	@GetMapping("/estados/{id}")
 	public Estado buscar(@PathVariable Long id) {
 		return ser.findById(id);
 	}
 	
-	@PostMapping("/estado")
+	@PostMapping("/estados")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Estado crear(@RequestBody Estado body) {
 		return ser.save(body);
 	}
 	
-	@PutMapping("/estado/{id}")
+	@PutMapping("/estados/{id}")
 	public Estado actualizar(@RequestBody Estado body, @PathVariable Long id) {
 		Estado rpd = ser.findById(id);
 		rpd.setNombre(body.getNombre());
 		return ser.save(rpd);
 	}
 	
-	@DeleteMapping("estado/{id}")
+	@DeleteMapping("estados/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void eliminar (@PathVariable Long id) {
 		ser.delete(id);

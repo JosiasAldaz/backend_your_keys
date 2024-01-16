@@ -20,9 +20,6 @@ import java.util.List;
 @Table(name="cliente")
 public class Cliente implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,9 +30,15 @@ public class Cliente implements Serializable{
 	private String licencia;
 	private String tipo_licencia;
 	
+	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name="id_cliente")
-	private List<Alquiler> alquiler;
+	@JoinColumn(name = "id_cliente")
+	private List<Alquiler> alquileres;
+	
+	
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_persona", unique = true)
+	private Persona persona;
 
 	public Long getId_cliente() {
 		return id_cliente;
@@ -51,14 +54,6 @@ public class Cliente implements Serializable{
 
 	public void setId_persona(Long id_persona) {
 		this.id_persona = id_persona;
-	}
-
-	public List<Alquiler> getAlquiler() {
-		return alquiler;
-	}
-
-	public void setAlquiler(List<Alquiler> alquiler) {
-		this.alquiler = alquiler;
 	}
 
 	public static long getSerialversionuid() {
@@ -80,5 +75,20 @@ public class Cliente implements Serializable{
 	public void setTipo_licencia(String tipo_licencia) {
 		this.tipo_licencia = tipo_licencia;
 	}
-	
+
+	public List<Alquiler> getAlquileres() {
+		return alquileres;
+	}
+
+	public void setAlquileres(List<Alquiler> alquileres) {
+		this.alquileres = alquileres;
+	}
+
+	public Persona getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}	
 }

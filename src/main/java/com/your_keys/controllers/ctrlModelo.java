@@ -23,30 +23,30 @@ public class ctrlModelo {
 	@Autowired
 	private serModelo ser;
 
-	@GetMapping("/modelo")
+	@GetMapping("/modelos")
 	public List<Modelo> listar() {
 		return ser.findAll();
 	}
 
-	@GetMapping("/modelo/{id}")
+	@GetMapping("/modelos/{id}")
 	public Modelo buscar(@PathVariable Long id) {
 		return ser.findById(id);
 	}
 	
-	@PostMapping("/modelo")
+	@PostMapping("/modelos")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Modelo crear(@RequestBody Modelo body) {
 		return ser.save(body);
 	}
 	
-	@PutMapping("/modelo/{id}")
+	@PutMapping("/modelos/{id}")
 	public Modelo actualizar(@RequestBody Modelo body, @PathVariable Long id) {
 		Modelo rpd = ser.findById(id);
 		rpd.setNombre(body.getNombre());
 		rpd.setId_marca(body.getId_marca());
 		return ser.save(rpd);
 	}
-	@DeleteMapping("/modelo/{id}")
+	@DeleteMapping("/modelos/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void eliminar (@PathVariable Long id) {
 		ser.delete(id);

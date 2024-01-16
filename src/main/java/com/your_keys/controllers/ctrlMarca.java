@@ -26,31 +26,31 @@ public class ctrlMarca {
 	private serMarca ser;
 	
 	
-	@GetMapping("/marca")
+	@GetMapping("/marcas")
 	public List<Marca> listar(){
 		return ser.findAll();
 	}
 	
-	@GetMapping("/marca/{id}")
+	@GetMapping("/marcas/{id}")
 	public Marca buscar(@PathVariable Long id) {
 		return ser.findById(id);
 	}
 	
 
-	@PostMapping("/marca")
+	@PostMapping("/marcas")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Marca crear(@RequestBody Marca body) {
 		return ser.save(body);
 	}
 	
-	@PutMapping("/marca/{id}")
+	@PutMapping("/marcas/{id}")
 	public Marca actualizar(@RequestBody Marca body, @PathVariable Long id) {
 		Marca rpd = ser.findById(id);
 		rpd.setNombre(body.getNombre());
 		return ser.save(rpd);
 	}
 	
-	@DeleteMapping("/marca/{id}")
+	@DeleteMapping("/marcas/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void eliminar (@PathVariable Long id) {
 		ser.delete(id);

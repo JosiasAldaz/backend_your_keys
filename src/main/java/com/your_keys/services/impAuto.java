@@ -16,20 +16,17 @@ public class impAuto  implements serAuto{
 	@Override
 	@Transactional(readOnly = true)
 	public List<Auto> findAll() {
-		// TODO Auto-generated method stub
 		return (List<Auto>) dao.findAll();
 	}
 
 	@Override
 	public Auto save(Auto auto) {
-		// TODO Auto-generated method stub
 		return dao.save(auto);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public Auto findById(Long id_auto) {
-		// TODO Auto-generated method stub
 		return dao.findById(id_auto).orElse(null);
 	}
 

@@ -25,23 +25,23 @@ public class ctrlAuto {
 	@Autowired
 	private serAuto ser;
 	
-	@GetMapping("/auto")
+	@GetMapping("/autos")
 	public List<Auto> listar(){
 		return ser.findAll();
 	}
 	
-	@GetMapping("/auto/{id}")
+	@GetMapping("/autos/{id}")
 	public Auto buscar(@PathVariable Long id) {
 		return ser.findById(id);
 	}
 	
-	@PostMapping("/auto")
+	@PostMapping("/autos")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Auto crear(@RequestBody Auto body) {
 		return ser.save(body);
 	}
 	
-	@PutMapping("/auto/{id}")
+	@PutMapping("/autos/{id}")
 	public Auto actualizar(@RequestBody Auto body, @PathVariable Long id) {
 		Auto rpd = ser.findById(id);
 		rpd.setCapacidad(body.getCapacidad());
@@ -56,9 +56,9 @@ public class ctrlAuto {
 		return ser.save(rpd);
 	}
 	
-	@DeleteMapping("/auto/{id}")
+	@DeleteMapping("/autos/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void delete(@PathVariable Long id) {
+	public void eliminar(@PathVariable Long id) {
 		ser.delete(id);
 	}
 	

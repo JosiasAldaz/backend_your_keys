@@ -33,6 +33,7 @@ public class impRol implements serRol {
 	}
 
 	@Override
+	@Transactional
 	public void delete(Long id_rol) {
 		dao.deleteById(id_rol);
 	}
