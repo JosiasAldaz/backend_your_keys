@@ -28,3 +28,35 @@ INSERT INTO auto(id_categoria,id_estado,id_modelo,matricula,capacidad,potencia,c
 INSERT INTO auto(id_categoria,id_estado,id_modelo,matricula,capacidad,potencia,color,precio_diario) VALUES(3,1,5,'IKJ-0553',2,1500,'azul platino',160.80);
 INSERT INTO auto(id_categoria,id_estado,id_modelo,matricula,capacidad,potencia,color,precio_diario) VALUES(1,1,4,'OKJ-4753',6,1100,'blanco',100.80);
 INSERT INTO auto(id_categoria,id_estado,id_modelo,matricula,capacidad,potencia,color,precio_diario) VALUES(1,1,3,'KÑJ-1253',8,1300,'negra',120.80);
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0704658624','Roberto','Samuel','Aguilar','Zamora','0987452633','Av. los andes y la primavera','robertosamule@gmail.com','2001/08/15','2024/01/16');
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0704658698','Victor','Javier','Aldaz','Arcalles','0987458853','La occidental','victorjavier@gmail.com','2005/05/01','2024/01/16');
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0704658112','Carlos','David','Oleas','Chimbo','0987847633','Las brisas','Carlosoleas@gmail.com','2004/07/12','2024/01/16');
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0154658112','Frank','Carlos','Barrera','Elmen','0984747633','Puerto bolivar','Frankbarrera@gmail.com','2002/10/12','2024/01/16');
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0125634778','Edison','Ariel','Chicaiza','Chuchuca','0984747078','Las brisas','Edisonchicaiza@gmail.com','2002/07/30','2024/01/16');
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0128794778','Dayana','Patricia','Jima','Arcalles','0984747078','Las brisas','Dayanajima@gmail.com','2002/07/30','2024/01/16');
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0127784778','Fabian','Alberto','Venegas','Valarezo','0984023078','El aguador','Fabianvenegas@gmail.com','2002/07/30','2024/01/16');
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0125026878','Ninfa','Barbie','Carchi','Ambato','0984747777','Deleg','Ninfacarchi@gmail.com','2003/05/30','2024/01/16');
+
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0705634778','Manuel','Alberto','Rodriguez','Pintacha','0984747888','El camal','Manuelrodriguez@gmail.com','2003/06/30','2024/03/16');
+
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0705685678','Moises','David','Guaman','Coello','0114747888','Pasaje','Moisesguaman@gmail.com','2004/08/30','2024/03/16');
+
+INSERT INTO empleado(id_persona,salario)VALUES(2,1200);
+INSERT INTO empleado(id_persona,salario)VALUES(1,1000);
+INSERT INTO empleado(id_persona,salario)VALUES(3,1000);
+INSERT INTO empleado(id_persona,salario)VALUES(4,1000);
+
+INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(5,'09874522B','TIPO C');
+INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(6,'09874742B','TIPO D');
+INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(7,'09574522C','TIPO B');
+INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(8,'09004522M','TIPO C');
+
