@@ -48,6 +48,8 @@ INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccio
 
 INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0705634778','Manuel','Alberto','Rodriguez','Pintacha','0984747888','El camal','Manuelrodriguez@gmail.com','2003/06/30','2024/03/16');
 
+INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0705054778','Chito','Marlon','Vera','Cruz','0984747748','Voluntad de dios','Chitomarlon@gmail.com','1998/04/15','2024/03/16');
+
 INSERT INTO persona(cedula,nombre1,nombre2,apellido1,apellido2,telefono,direccion,correo,fecha_nac,fecha_reg) VALUES('0705685678','Moises','David','Guaman','Coello','0114747888','Pasaje','Moisesguaman@gmail.com','2004/08/30','2024/03/16');
 
 INSERT INTO empleado(id_persona,salario)VALUES(2,1200);
@@ -59,4 +61,6 @@ INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(5,'09874522B','TIPO
 INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(6,'09874742B','TIPO D');
 INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(7,'09574522C','TIPO B');
 INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(8,'09004522M','TIPO C');
+
+INSERT INTO usuario(id_persona,password,username) VALUES(10,'11111','elpensionesalimenticias');
 
