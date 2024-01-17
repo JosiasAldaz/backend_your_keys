@@ -1,3 +1,4 @@
+
 INSERT INTO estado(nombre) VALUES('DISPONIBLE');
 INSERT INTO estado(nombre) VALUES('ALQUILADO');
 INSERT INTO estado(nombre) VALUES('REPARACIÓN');
