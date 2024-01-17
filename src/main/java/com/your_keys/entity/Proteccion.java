@@ -25,7 +25,8 @@ public class Proteccion implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_proteccion;
-	private Date fecha;
+	private Date nombre;
+	private double precio;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="id_proteccion")
@@ -37,11 +38,17 @@ public class Proteccion implements Serializable{
 		this.id_proteccion = id_proteccion;
 	}
 	
-	public Date getFecha() {
-		return fecha;
+	public Date getNombre() {
+		return nombre;
 	}
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setNombre(Date nombre) {
+		this.nombre = nombre;
+	}
+	public double getPrecio() {
+		return precio;
+	}
+	public void setPrecio(double precio) {
+		this.precio = precio;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
