@@ -25,7 +25,7 @@ public class Cliente implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_cliente;	
-	@Column(nullable = false, unique = true, insertable = false, updatable = false)
+	@Column(nullable = false, unique = true)
 	private Long id_persona;
 	private String licencia;
 	private String tipo_licencia;
@@ -34,11 +34,6 @@ public class Cliente implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_cliente")
 	private List<Alquiler> alquileres;
-	
-	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_persona", unique = true)
-	private Persona persona;
 
 	public Long getId_cliente() {
 		return id_cliente;
@@ -82,13 +77,5 @@ public class Cliente implements Serializable{
 
 	public void setAlquileres(List<Alquiler> alquileres) {
 		this.alquileres = alquileres;
-	}
-
-	public Persona getPersona() {
-		return persona;
-	}
-
-	public void setPersona(Persona persona) {
-		this.persona = persona;
 	}	
 }

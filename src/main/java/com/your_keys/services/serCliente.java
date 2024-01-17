@@ -2,7 +2,6 @@ package com.your_keys.services;
 
 import java.util.List;
 
-import com.your_keys.entity.Auto;
 import com.your_keys.entity.Cliente;
 
 public interface serCliente {

@@ -62,6 +62,20 @@ public class Persona implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_reg;
 	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_persona")
+	private List<Empleado> empleados;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_persona")
+	private List<Cliente> clientes;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_persona")
+	private List<Usuario> usuarios;
+	
+	
+	
 	@PrePersist
 	public void prePersist() {
 		fecha_reg = new Date();
@@ -155,6 +169,30 @@ public class Persona implements Serializable {
 		this.url_imagen = url_imagen;
 	}
 
+	public List<Empleado> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
+
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
+	public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
 	public Date getFecha_reg() {
 		return fecha_reg;
 	}
@@ -162,4 +200,6 @@ public class Persona implements Serializable {
 	public void setFecha_reg(Date fecha_reg) {
 		this.fecha_reg = fecha_reg;
 	}
+
+	
 }

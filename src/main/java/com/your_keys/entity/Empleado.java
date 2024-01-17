@@ -23,7 +23,7 @@ public class Empleado implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_empleado;
 	
-	@Column(nullable = false, unique = true, insertable = false, updatable = false)
+	@Column(nullable = false, unique = true)
 	private Long id_persona;
 	
 	@Column(nullable = false)
@@ -32,11 +32,6 @@ public class Empleado implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_empleado")
 	private List<Alquiler> alquileres;
-	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_persona", unique = true)
-	private Persona persona;
-	
 
 	public Long getId_empleado() {
 		return id_empleado;
@@ -68,14 +63,6 @@ public class Empleado implements Serializable {
 
 	public void setAlquileres(List<Alquiler> alquileres) {
 		this.alquileres = alquileres;
-	}
-
-	public Persona getPersona() {
-		return persona;
-	}
-
-	public void setPersona(Persona persona) {
-		this.persona = persona;
 	}
 	
 }
