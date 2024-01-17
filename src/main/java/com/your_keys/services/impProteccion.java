@@ -2,13 +2,18 @@ package com.your_keys.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.your_keys.dao.daoProteccion;
-import com.your_keys.entity.Cliente;
 import com.your_keys.entity.Proteccion;
 
+@Service
 public class impProteccion implements serProteccion{
-
+	
+	@Autowired
 	private daoProteccion dao;
+	
 	@Override
 	public List<Proteccion> findAll() {
 		// TODO Auto-generated method stub

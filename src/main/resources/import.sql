@@ -65,3 +65,4 @@ INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(8,'09004522M','TIPO
 
 INSERT INTO usuario(id_persona,password,username) VALUES(10,'11111','elpensionesalimenticias');
 
+
