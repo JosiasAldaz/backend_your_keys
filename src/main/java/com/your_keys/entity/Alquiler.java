@@ -17,10 +17,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="alquiler")
 public class Alquiler implements Serializable{
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -38,8 +34,9 @@ public class Alquiler implements Serializable{
 	private boolean reservado;
 	private Date fecha_reg;
 	
-	@OneToOne(mappedBy = "alquiler")
-	private Devolucion devo;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="id_alquiler")
+	 private List<Alquiler> alquileres;
 	
 	public Long getId_alquiler() {
 		return id_alquiler;
@@ -150,13 +147,13 @@ public class Alquiler implements Serializable{
 		return serialVersionUID;
 	}
 
-	public Devolucion getDevo() {
-		return devo;
+	public List<Alquiler> getAlquileres() {
+		return alquileres;
 	}
 
-	public void setDevo(Devolucion devo) {
-		this.devo = devo;
+	public void setAlquileres(List<Alquiler> alquileres) {
+		this.alquileres = alquileres;
 	}
 
-	
+
 }

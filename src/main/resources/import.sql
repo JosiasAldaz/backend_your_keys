@@ -1,3 +1,14 @@
+INSERT INTO rol (nombre) VALUES ('rol 1');
+INSERT INTO rol (nombre) VALUES ('rol 2');
+INSERT INTO rol (nombre) VALUES ('rol 3');
+INSERT INTO rol (nombre) VALUES ('rol 4');
+INSERT INTO rol (nombre) VALUES ('rol 5');
+
+INSERT INTO proteccion (fecha, id_proteccion) VALUES ('2024-01-20', 1);
+INSERT INTO proteccion (fecha, id_proteccion) VALUES ('2024-01-22', 2);
+INSERT INTO proteccion (fecha, id_proteccion) VALUES ('2024-01-25', 3);
+INSERT INTO proteccion (fecha, id_proteccion) VALUES ('2024-01-28', 4);
+INSERT INTO proteccion (fecha, id_proteccion) VALUES ('2024-01-30', 5);
 
 INSERT INTO estado(nombre) VALUES('DISPONIBLE');
 INSERT INTO estado(nombre) VALUES('ALQUILADO');
@@ -63,6 +74,23 @@ INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(6,'09874742B','TIPO
 INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(7,'09574522C','TIPO B');
 INSERT INTO cliente(id_persona,licencia,tipo_licencia)VALUES(8,'09004522M','TIPO C');
 
-INSERT INTO usuario(id_persona,password,username) VALUES(10,'11111','elpensionesalimenticias');
+INSERT INTO usuario(id_persona,password,username) VALUES(1,'11111','elpensionesalimenticias');
+INSERT INTO usuario(id_persona,password,username) VALUES(2,'22222','hola');
+INSERT INTO usuario(id_persona,password,username) VALUES(3,'11111','el');
+INSERT INTO usuario(id_persona,password,username) VALUES(4,'11111','trakaaaa');
+
+INSERT INTO alquiler (pagado, precio_auto, precio_protección, reservado, total, fecha_fin, fecha_ini, fecha_reg, id_alquiler, id_auto, id_cliente, id_empleado, id_proteccion, tipo_pago) VALUES (true, 100.50, 20.00, true, 120.50, '2024-01-18 12:00:00', '2024/01/16', '2024/01/16', 1, 1, 1, 1, 1, 'Tarjeta de crédito');
+INSERT INTO alquiler (pagado, precio_auto, precio_protección, reservado, total, fecha_fin, fecha_ini, fecha_reg, id_alquiler, id_auto, id_cliente, id_empleado, id_proteccion, tipo_pago) VALUES (true, 120.00, 15.00, true, 135.00, '2024-01-20 14:30:00', '2024/01/18', '2024/01/17', 2, 2, 2, 2, 2, 'Efectivo');
+INSERT INTO alquiler (pagado, precio_auto, precio_protección, reservado, total, fecha_fin, fecha_ini, fecha_reg, id_alquiler, id_auto, id_cliente, id_empleado, id_proteccion, tipo_pago) VALUES (false, 80.25, 10.00, false, 90.25, '2024-01-22 10:15:00', '2024/01/20', '2024/01/19', 3, 3, 3, 3, 3, 'Transferencia bancaria');
+INSERT INTO alquiler (pagado, precio_auto, precio_protección, reservado, total, fecha_fin, fecha_ini, fecha_reg, id_alquiler, id_auto, id_cliente, id_empleado, id_proteccion, tipo_pago) VALUES (true, 150.75, 25.50, true, 176.25, '2024-01-25 18:45:00', '2024/01/23', '2024/01/22', 4, 4, 4, 4, 4, 'Cheque');
+
+INSERT INTO usuario_rol (id_rol,id_usaurio,id_usuario,id_usuario_rol) VALUES (1,1,1,1);
+INSERT INTO usuario_rol (id_rol,id_usaurio,id_usuario,id_usuario_rol) VALUES (2,2,2,2);
+INSERT INTO usuario_rol (id_rol,id_usaurio,id_usuario,id_usuario_rol) VALUES (3,3,3,3);
+
+INSERT INTO devolucion (id_alquiler) VALUES (1);
+INSERT INTO devolucion (id_alquiler) VALUES (2);
+INSERT INTO devolucion (id_alquiler) VALUES (3);
+INSERT INTO devolucion (id_alquiler) VALUES (4);
 
 
