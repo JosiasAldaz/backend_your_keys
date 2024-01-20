@@ -46,7 +46,7 @@ public class ctrlProteccion {
 	@PutMapping("/proteccion/{id}")
 	public Proteccion actualizar(@RequestBody Proteccion body, @PathVariable Long id) {
 	Proteccion rpd = ser.findById(id);
-	rpd.setNombre(body.getNombre());
+	rpd.setFecha(body.getFecha());
 	rpd.setPrecio(body.getPrecio());
 	return ser.save(rpd);
 }
