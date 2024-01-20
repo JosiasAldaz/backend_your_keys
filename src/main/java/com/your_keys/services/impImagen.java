@@ -1,4 +1,8 @@
 package com.your_keys.services;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,17 +11,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class impImagen implements serImagen {
 
-	private final static String IMAGENES_FOLDER = "imagenes";
-	
-	@Override
+    private final static String IMAGENES_FOLDER = "imagenes";
+
+    @Override
 	public Resource load(String filename) throws MalformedURLException {
 	    Path ruta = getRuta(filename);
 	    Resource resource = new UrlResource(ruta.toUri());
@@ -51,3 +51,4 @@ public class impImagen implements serImagen {
 		return Paths.get(IMAGENES_FOLDER).resolve(filename).toAbsolutePath();
 	}
 }
+
