@@ -22,11 +22,9 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "devolucion")
 public class Devolucion implements Serializable{
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_devolución;

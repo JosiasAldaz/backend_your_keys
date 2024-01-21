@@ -21,9 +21,9 @@ import com.your_keys.services.serCategoria;
 @RestController
 @RequestMapping("/api")
 public class ctrlCategoria {
+	
 	@Autowired
 	private serCategoria ser;
-	
 	
 	@GetMapping("/categorias")
 	public List<Categoria> listar(){

@@ -26,34 +26,27 @@ public class ctrlAlquiler {
 	@Autowired
 	private serAlquiler ser;
 	
-	@GetMapping("/alquiler")
+	@GetMapping("/alquileres")
 	public List<Alquiler> listar(){
 		return ser.findAll();
 	}
 	
-	@GetMapping("/alquiler/{id}")
+	@GetMapping("/alquileres/{id}")
 	public Alquiler buscar(@PathVariable Long id) {
 		return ser.findById(id);
 	}
 	
-	 
-	  @PostMapping("/alquiler")
+	@PostMapping("/alquileres")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Alquiler crear(@RequestBody Alquiler body) {
 		return ser.Save(body);
 	}
 	
-	@PutMapping("/alquiler/{id}")
+	@PutMapping("/alquileres/{id}")
 	public Alquiler actualizar(@RequestBody Alquiler body, @PathVariable Long id) {
 	Alquiler rpd = ser.findById(id);
-	rpd.setId_auto(body.getId_auto());
-	rpd.setId_empleado(body.getId_empleado());
-	rpd.setFecha_ini(body.getFecha_ini());
-	rpd.setFecha_fin(body.getFecha_fin());
-	rpd.setPrecio_auto(body.getPrecio_auto());
-	rpd.setPrecio_proteccion(body.getPrecio_proteccion());
-	rpd.setTotal(body.getTotal());
 	rpd.setTipo_pago(body.getTipo_pago());
+	rpd.setPagado(body.isPagado());
 	rpd.setFecha_reg(body.getFecha_reg());
 	return ser.Save(rpd);
 }

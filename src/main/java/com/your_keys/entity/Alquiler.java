@@ -14,6 +14,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name="alquiler")
@@ -31,8 +33,10 @@ public class Alquiler implements Serializable{
 	@Column(nullable = false)
 	private Long id_empleado;
 	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date fecha_ini;
 	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date fecha_fin;
 	@Column(nullable = false)
 	private double precio_auto;
@@ -44,6 +48,9 @@ public class Alquiler implements Serializable{
 	private String tipo_pago;
 	private boolean pagado;
 	private boolean reservado;
+	@Temporal(TemporalType.DATE)
+	private Date fecha_res;
+	@Temporal(TemporalType.DATE)
 	private Date fecha_reg;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -53,6 +60,7 @@ public class Alquiler implements Serializable{
 	@PrePersist
 	public void prePersist() {
 		fecha_reg = new Date();
+		fecha_res = new Date();
 	}
 
 	public Long getId_alquiler() {
@@ -159,6 +167,14 @@ public class Alquiler implements Serializable{
 		this.reservado = reservado;
 	}
 
+	public Date getFecha_res() {
+		return fecha_res;
+	}
+
+	public void setFecha_res(Date fecha_res) {
+		this.fecha_res = fecha_res;
+	}
+
 	public Date getFecha_reg() {
 		return fecha_reg;
 	}
@@ -174,4 +190,5 @@ public class Alquiler implements Serializable{
 	public void setDevoluciones(List<Devolucion> devoluciones) {
 		this.devoluciones = devoluciones;
 	}
+	
 }

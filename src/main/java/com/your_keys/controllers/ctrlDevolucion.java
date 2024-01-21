@@ -21,31 +21,24 @@ import com.your_keys.services.serDevolucion;
 @RestController
 @RequestMapping("/api")
 public class ctrlDevolucion {
+	
 	@Autowired
 	private serDevolucion ser;
 	
-	@GetMapping("/devolucion")
+	@GetMapping("/devoluciones")
 	public List<Devolucion> listar(){
 		return ser.findAll();
 	}
 	
-	@GetMapping("/devolucion/{id}")
+	@GetMapping("/devoluciones/{id}")
 	public Devolucion buscar(@PathVariable Long id) {
 		return ser.findById(id);
 	}
-	
 	 
-	  @PostMapping("/devolucion")
+	@PostMapping("/devoluciones")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Devolucion crear(@RequestBody Devolucion body) {
 		return ser.save(body);
 	}
-	
-	@PutMapping("/devolucion/{id}")
-	public Devolucion actualizar(@RequestBody Devolucion body, @PathVariable Long id) {
-	Devolucion rpd = ser.findById(id);
-	rpd.setFecha(body.getFecha());
-	return ser.save(rpd);
-}
 	
 }

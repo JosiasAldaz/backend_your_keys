@@ -26,24 +26,24 @@ public class ctrlProteccion {
 	@Autowired
 	private serProteccion ser;
 	
-	@GetMapping("/proteccion")
+	@GetMapping("/protecciones")
 	public List<Proteccion> listar(){
 		return ser.findAll();
 	}
 	
-	@GetMapping("/proteccion/{id}")
+	@GetMapping("/protecciones/{id}")
 	public Proteccion buscar(@PathVariable Long id) {
 		return ser.findById(id);
 	}
 	
 	 
-	@PostMapping("/proteccion")
+	@PostMapping("/protecciones")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Proteccion crear(@RequestBody Proteccion body) {
 		return ser.save(body);
 	}
 	
-	@PutMapping("/proteccion/{id}")
+	@PutMapping("/protecciones/{id}")
 	public Proteccion actualizar(@RequestBody Proteccion body, @PathVariable Long id) {
 	Proteccion rpd = ser.findById(id);
 	rpd.setNombre(body.getNombre());

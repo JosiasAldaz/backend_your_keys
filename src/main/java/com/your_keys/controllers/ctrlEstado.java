@@ -23,7 +23,6 @@ public class ctrlEstado {
 	@Autowired
 	private serEstado ser;
 	
-	
 	@GetMapping("/estados")
 	public List<Estado> listar(){
 		return ser.findAll();
