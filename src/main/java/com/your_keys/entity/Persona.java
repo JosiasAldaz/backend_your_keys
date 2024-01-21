@@ -74,8 +74,6 @@ public class Persona implements Serializable {
 	@JoinColumn(name = "id_persona")
 	private List<Usuario> usuarios;
 	
-	
-	
 	@PrePersist
 	public void prePersist() {
 		fecha_reg = new Date();

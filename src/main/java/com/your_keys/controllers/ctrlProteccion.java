@@ -37,7 +37,7 @@ public class ctrlProteccion {
 	}
 	
 	 
-	  @PostMapping("/proteccion")
+	@PostMapping("/proteccion")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Proteccion crear(@RequestBody Proteccion body) {
 		return ser.save(body);

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Date;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,14 +22,25 @@ public class Alquiler implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_alquiler;
+	@Column(nullable = false)
 	private Long id_cliente;
+	@Column(nullable = false)
 	private Long id_auto;
+	@Column(nullable = false)
+	private Long id_proteccion;
+	@Column(nullable = false)
 	private Long id_empleado;
+	@Column(nullable = false)
 	private Date fecha_ini;
+	@Column(nullable = false)
 	private Date fecha_fin;
+	@Column(nullable = false)
 	private double precio_auto;
-	private double precio_protección;
+	@Column(nullable = false)
+	private double precio_proteccion;
+	@Column(nullable = false)
 	private double total;
+	@Column(nullable = false)
 	private String tipo_pago;
 	private boolean pagado;
 	private boolean reservado;
@@ -36,8 +48,13 @@ public class Alquiler implements Serializable{
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="id_alquiler")
-	 private List<Alquiler> alquileres;
+	 private List<Devolucion> devoluciones;
 	
+	@PrePersist
+	public void prePersist() {
+		fecha_reg = new Date();
+	}
+
 	public Long getId_alquiler() {
 		return id_alquiler;
 	}
@@ -62,6 +79,13 @@ public class Alquiler implements Serializable{
 		this.id_auto = id_auto;
 	}
 
+	public Long getId_proteccion() {
+		return id_proteccion;
+	}
+
+	public void setId_proteccion(Long id_proteccion) {
+		this.id_proteccion = id_proteccion;
+	}
 
 	public Long getId_empleado() {
 		return id_empleado;
@@ -95,12 +119,12 @@ public class Alquiler implements Serializable{
 		this.precio_auto = precio_auto;
 	}
 
-	public double getPrecio_protección() {
-		return precio_protección;
+	public double getPrecio_proteccion() {
+		return precio_proteccion;
 	}
 
-	public void setPrecio_protección(double precio_protección) {
-		this.precio_protección = precio_protección;
+	public void setPrecio_proteccion(double precio_proteccion) {
+		this.precio_proteccion = precio_proteccion;
 	}
 
 	public double getTotal() {
@@ -143,17 +167,11 @@ public class Alquiler implements Serializable{
 		this.fecha_reg = fecha_reg;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public List<Devolucion> getDevoluciones() {
+		return devoluciones;
 	}
 
-	public List<Alquiler> getAlquileres() {
-		return alquileres;
+	public void setDevoluciones(List<Devolucion> devoluciones) {
+		this.devoluciones = devoluciones;
 	}
-
-	public void setAlquileres(List<Alquiler> alquileres) {
-		this.alquileres = alquileres;
-	}
-
-
 }

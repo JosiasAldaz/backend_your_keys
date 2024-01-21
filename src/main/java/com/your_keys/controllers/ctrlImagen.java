@@ -35,14 +35,15 @@ public class ctrlImagen {
 	@PostMapping("/imagenes")
 	public ResponseEntity<String> subirImagen(@RequestParam("file") MultipartFile file) {
 	    try {
-	        String url_imagen = "http://localhost:8080/api/imagenes/"+service.copy(file);
+	        String url_imagen = "http://localhost:8080/api/imagenes/" + service.copy(file);
 	        return ResponseEntity.ok(url_imagen);
 	    } catch (IOException e) {
 	        e.printStackTrace();
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-	                             .body("Error al subir la imagen.");
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al subir la imagen.");
 	    }
 	}
+
+
 	
 	@DeleteMapping("/imagenes/{filename}")
     public ResponseEntity<String> eliminarImagen(@PathVariable String filename) {

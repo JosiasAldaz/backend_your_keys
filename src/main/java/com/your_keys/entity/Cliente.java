@@ -51,10 +51,6 @@ public class Cliente implements Serializable{
 		this.id_persona = id_persona;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	public String getLicencia() {
 		return licencia;
 	}

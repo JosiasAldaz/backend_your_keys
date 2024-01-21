@@ -51,7 +51,7 @@ public class ctrlAlquiler {
 	rpd.setFecha_ini(body.getFecha_ini());
 	rpd.setFecha_fin(body.getFecha_fin());
 	rpd.setPrecio_auto(body.getPrecio_auto());
-	rpd.setPrecio_protección(body.getPrecio_protección());
+	rpd.setPrecio_proteccion(body.getPrecio_proteccion());
 	rpd.setTotal(body.getTotal());
 	rpd.setTipo_pago(body.getTipo_pago());
 	rpd.setFecha_reg(body.getFecha_reg());

@@ -51,7 +51,6 @@ public class Auto  implements Serializable{
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="id_auto")
-	
 	private List<Alquiler> listado;
 	 
 	
@@ -121,13 +120,5 @@ public class Auto  implements Serializable{
 	public void setListado(List<Alquiler> listado) {
 		this.listado = listado;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
-	
-	
-	
 
 }

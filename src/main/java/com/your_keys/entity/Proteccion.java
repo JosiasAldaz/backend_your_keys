@@ -31,6 +31,7 @@ public class Proteccion implements Serializable{
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="id_proteccion")
 	private List<Alquiler> alquileres;
+	
 	public Long getId_proteccion() {
 		return id_proteccion;
 	}
@@ -49,9 +50,6 @@ public class Proteccion implements Serializable{
 	}
 	public void setPrecio(double precio) {
 		this.precio = precio;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 	public List<Alquiler> getAlquileres() {
 		return alquileres;

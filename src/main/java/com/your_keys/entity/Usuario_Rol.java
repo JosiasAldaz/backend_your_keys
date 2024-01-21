@@ -18,7 +18,7 @@ public class Usuario_Rol implements Serializable{
 	private Long id_usuario_rol;
 	
 	@Column(nullable = false)
-	private Long id_usaurio;
+	private Long id_usuario;
 	
 	@Column(nullable = false)
 	private Long id_rol;
@@ -31,14 +31,6 @@ public class Usuario_Rol implements Serializable{
 		this.id_usuario_rol = id_usuario_rol;
 	}
 
-	public Long getId_usaurio() {
-		return id_usaurio;
-	}
-
-	public void setId_usaurio(Long id_usaurio) {
-		this.id_usaurio = id_usaurio;
-	}
-
 	public Long getId_rol() {
 		return id_rol;
 	}
@@ -46,4 +38,13 @@ public class Usuario_Rol implements Serializable{
 	public void setId_rol(Long id_rol) {
 		this.id_rol = id_rol;
 	}
+
+	public Long getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(Long id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+	
 }
