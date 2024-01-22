@@ -23,6 +23,7 @@ public class impMarca implements serMarca{
 	}
 
 	@Override
+	@Transactional
 	public Marca save(Marca marca) {
 		// TODO Auto-generated method stub
 		return dao.save(marca);
@@ -36,6 +37,7 @@ public class impMarca implements serMarca{
 	}
 
 	@Override
+	@Transactional
 	public void delete(Long id_marca) {
 		// TODO Auto-generated method stub
 		dao.deleteById(id_marca);
