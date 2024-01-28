@@ -67,4 +67,12 @@ public class Usuario implements Serializable {
 		public void setUsuarios_roles(List<Usuario_Rol> usuarios_roles) {
 			this.usuarios_roles = usuarios_roles;
 		}
+
+		public Long getId_persona() {
+			return id_persona;
+		}
+
+		public void setId_persona(Long id_persona) {
+			this.id_persona = id_persona;
+		}
 }

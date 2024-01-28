@@ -15,7 +15,6 @@ import jakarta.persistence.OneToOne;
 import java.io.Serializable;
 import java.util.List;
 
-
 @Entity
 @Table(name="cliente")
 public class Cliente implements Serializable{
@@ -29,7 +28,6 @@ public class Cliente implements Serializable{
 	private Long id_persona;
 	private String licencia;
 	private String tipo_licencia;
-	
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_cliente")

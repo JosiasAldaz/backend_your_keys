@@ -32,7 +32,7 @@ public class impCliente implements serCliente{
 	}
 
 	@Override
-	@Transactional(readOnly = true)
+	@Transactional
 	public void delete(Long id_cliente) {
 		dao.deleteById(id_cliente);
 	}

@@ -27,7 +27,7 @@ public class Devolucion implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id_devolución;
+	private Long id_devolucion;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
@@ -40,12 +40,12 @@ public class Devolucion implements Serializable{
 		fecha = new Date();
 	}
 
-	public Long getId_devolución() {
-		return id_devolución;
+	public Long getId_devolucion() {
+		return id_devolucion;
 	}
 
-	public void setId_devolución(Long id_devolución) {
-		this.id_devolución = id_devolución;
+	public void setId_devolucion(Long id_devolucion) {
+		this.id_devolucion = id_devolucion;
 	}
 
 	public Date getFecha() {
@@ -63,7 +63,4 @@ public class Devolucion implements Serializable{
 	public void setId_alquiler(Long id_alquiler) {
 		this.id_alquiler = id_alquiler;
 	}
-	
-	
-	
 }

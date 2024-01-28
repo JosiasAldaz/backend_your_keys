@@ -15,8 +15,6 @@ public class impModelo  implements serModelo{
 	@Autowired
 	private daoModelo dao;
 	
-	
-
 	@Override
 	@Transactional(readOnly = true)
 	public List<Modelo> findAll() {

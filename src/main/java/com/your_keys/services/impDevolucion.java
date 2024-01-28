@@ -23,7 +23,7 @@ public class impDevolucion implements serDevolucion{
 	}
 
 	@Override
-	@Transactional(readOnly = true)
+	@Transactional
 	public Devolucion save(Devolucion devolucion) {
 		// TODO Auto-generated method stub
 		return dao.save(devolucion);
@@ -37,7 +37,7 @@ public class impDevolucion implements serDevolucion{
 	}
 
 	@Override
-	@Transactional(readOnly = true)
+	@Transactional
 	public void delete(Long id_proteccion) {
 		// TODO Auto-generated method stub
 		dao.deleteById(id_proteccion);

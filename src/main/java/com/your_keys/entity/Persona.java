@@ -50,7 +50,7 @@ public class Persona implements Serializable {
 	@Column(nullable = false)
 	private String direccion;
 	
-	@Column(nullable = false)
+	@Column(nullable = true)
 	@Temporal(TemporalType.DATE)
 	private Date fecha_nac;
 	
