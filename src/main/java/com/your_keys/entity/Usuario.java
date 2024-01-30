@@ -75,4 +75,5 @@ public class Usuario implements Serializable {
 		public void setId_persona(Long id_persona) {
 			this.id_persona = id_persona;
 		}
+		
 }
