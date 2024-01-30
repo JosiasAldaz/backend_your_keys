@@ -33,10 +33,8 @@ public class Alquiler implements Serializable{
 	@Column(nullable = true)
 	private Long id_empleado;
 	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
 	private Date fecha_ini;
 	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
 	private Date fecha_fin;
 	@Column(nullable = false)
 	private double precio_auto;
