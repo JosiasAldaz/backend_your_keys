@@ -8,5 +8,6 @@ public interface serAlquiler {
 	public List<Alquiler> findAll();
 	public Alquiler Save(Alquiler alquiler);
 	public Alquiler findById(Long id_alquiler);
+	public void delete(Long id_alquiler);
 	
 }

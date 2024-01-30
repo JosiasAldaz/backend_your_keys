@@ -42,7 +42,6 @@ public class Alquiler implements Serializable{
 	private double precio_proteccion;
 	@Column(nullable = false)
 	private double total;
-	@Column(nullable = false)
 	private String tipo_pago;
 	private boolean pagado;
 	private boolean reservado;
