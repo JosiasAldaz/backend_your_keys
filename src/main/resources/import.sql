@@ -1,4 +1,4 @@
-INSERT INTO estado (nombre) VALUES ('Disponible'), ('Alquilado'), ('Reparación');
+INSERT INTO estado (nombre) VALUES ('Disponible'), ('Alquilado'), ('Reparación'), ('Reservado');
 
 INSERT INTO categoria (nombre) VALUES ('Familiar'), ('Sedán'), ('Deportivo'), ('SUV'), ('Camioneta'), ('Híbrido');
 

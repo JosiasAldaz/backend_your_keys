@@ -61,8 +61,4 @@ public class ctrlAuto {
 	public void eliminar(@PathVariable Long id) {
 		ser.delete(id);
 	}
-	
-	
-	
-
 }
